@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 // import other modules
 const index = require('./routes/index');
@@ -10,6 +11,7 @@ const employees = require('./routes/employees');
 // Invoking
 const app = express();
 dotenv.config();
+app.use(cors());
 
 // connecting to database
 mongoose

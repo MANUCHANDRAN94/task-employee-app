@@ -22,12 +22,14 @@ var BusinessSchema = new mongoose.Schema(
 			default: 'Company',
 			required: true,
 		},
-		role: {
-			desc: 'Employee role',
-			type: [String],
-			enum: ['OPERATOR', 'PRODUCER', 'SHIPPER', 'HAULER', 'TRANSPORTER'],
-			required: true,
-		},
+		role: [
+			{
+				desc: 'Employee role',
+				type: String,
+				enum: ['OPERATOR', 'PRODUCER', 'SHIPPER', 'HAULER', 'TRANSPORTER'],
+				required: true,
+			},
+		],
 		contactInfo: {
 			firstName: String,
 			middleName: String,
