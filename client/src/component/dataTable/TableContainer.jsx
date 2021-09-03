@@ -54,7 +54,7 @@ const TableContainer = ({ columns, data }) => {
 					</tr>
 				))}
 			</thead>
-			<tbody {...getTableBodyProps()}>
+			<tbody {...getTableBodyProps()} style={{ textAlign: 'center' }}>
 				{rows.map((row, i) => {
 					prepareRow(row);
 					return (

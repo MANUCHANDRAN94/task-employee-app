@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Dashboard from './pages/dashboard/Dashboard';
-import Edit from './pages/edit/Edit';
+import Form from './component/form/Form';
 
 function App() {
 	return (
@@ -10,11 +10,14 @@ function App() {
 				<Route exact path='/'>
 					<Home />
 				</Route>
-				<Route exact path='/employees'>
+				<Route exact path='/dashboard'>
 					<Dashboard />
 				</Route>
 				<Route path='/employees/:id'>
-					<Edit />
+					<Form />
+				</Route>
+				<Route path='/create'>
+					<Form />
 				</Route>
 			</Switch>
 		</Router>

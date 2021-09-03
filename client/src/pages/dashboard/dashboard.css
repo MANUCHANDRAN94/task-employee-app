@@ -29,9 +29,37 @@ table th::before {
 	border-right: 5px solid transparent;
 }
 
-.App {
+.dashboard-container {
 	display: flex;
+	width: 80%;
+	margin: 0 auto;
 	flex-direction: column;
 	padding: 20px;
 	color: #00000094;
+}
+
+.create-button {
+	width: auto;
+	margin: 0 auto 20px;
+	text-decoration: none;
+	font-size: 24px;
+	font-weight: 900;
+	color: rgb(195, 236, 195);
+	padding: 10px;
+	text-align: center;
+	border-radius: 14px;
+	background-color: rgb(57, 40, 75);
+	cursor: pointer;
+}
+
+.dashboard-select-employee {
+	text-decoration: 'none';
+	cursor: 'pointer';
+	font-size: '20px';
+	font-weight: 'bold';
+	color: 'black';
+}
+
+.dashboard-delete-button {
+	cursor: pointer;
 }

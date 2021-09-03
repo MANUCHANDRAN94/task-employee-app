@@ -6,7 +6,6 @@ var BusinessSchema = new mongoose.Schema(
 			trim: true,
 			type: String,
 			// index: true,
-			unique: true,
 			required: true,
 		},
 		name: {
@@ -35,7 +34,7 @@ var BusinessSchema = new mongoose.Schema(
 			middleName: String,
 			lastName: String,
 			givenName: String,
-			email: String,
+			email: { type: String, required: true, unique: true },
 			phone: String,
 		},
 		address: [

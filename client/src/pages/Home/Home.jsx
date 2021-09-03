@@ -15,7 +15,7 @@ export default function Header() {
 				/>
 			</div>
 			<button className='landing-button'>
-				<Link className='link' to='/employees'>
+				<Link className='link' to='/dashboard'>
 					Start
 				</Link>
 			</button>

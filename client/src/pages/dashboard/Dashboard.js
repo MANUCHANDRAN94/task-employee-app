@@ -41,7 +41,16 @@ function Dashboard() {
 				accessor: 'user',
 				Cell: ({ cell: { value } }) =>
 					value ? (
-						<a href={'/employees/' + value.id}>
+						<a
+							href={'/employees/' + value.id}
+							style={{
+								textDecoration: 'none',
+								cursor: 'pointer',
+								fontSize: '20px',
+								fontWeight: 'bold',
+								color: 'black',
+							}}
+						>
 							<span>{value.name}</span>
 						</a>
 					) : (
@@ -72,8 +81,18 @@ function Dashboard() {
 				accessor: 'action',
 				Cell: ({ cell: { value } }) => (
 					<div className='dashboard-button-group'>
-						<button type='button' onClick={() => deleteEmployee(value)}>
-							Delete
+						<button
+							type='button'
+							onClick={() => deleteEmployee(value)}
+							style={{
+								textDecoration: 'none',
+								cursor: 'pointer',
+								fontSize: '20px',
+								fontWeight: 'bold',
+								color: 'red',
+							}}
+						>
+							<i className='fas fa-trash-alt'></i>
 						</button>
 					</div>
 				),
@@ -105,10 +124,16 @@ function Dashboard() {
 	}
 
 	return (
-		<div className='App'>
-			<h1>
-				<center>React Table Demo</center>
+		<div className='dashboard-container'>
+			<h1 className='dashboard-heading'>
+				<center>Employee List</center>
 			</h1>
+			<Link className='create-button' to='/create'>
+				<span>
+					<i class='fas fa-user-plus'></i>
+				</span>
+				{} Create new
+			</Link>
 			<TableContainer columns={columns} data={data} />
 		</div>
 	);

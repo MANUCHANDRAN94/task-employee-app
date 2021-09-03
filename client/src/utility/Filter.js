@@ -12,7 +12,6 @@ export function GlobalFilter({ globalFilter, setGlobalFilter }) {
 
 	return (
 		<div>
-			<Label>Search Table: </Label>
 			<Input
 				value={value || ''}
 				onChange={(e) => {
@@ -22,6 +21,7 @@ export function GlobalFilter({ globalFilter, setGlobalFilter }) {
 				placeholder=' Enter value '
 				className='w-25'
 				style={{
+					marginLeft: '2px',
 					fontSize: '1.1rem',
 					margin: '15px',
 					display: 'inline',
