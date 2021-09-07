@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Dashboard from './pages/dashboard/Dashboard';
-import Form from './component/form/Form';
+import FormComponent from './component/form/Form';
 
 function App() {
 	return (
@@ -10,15 +10,17 @@ function App() {
 				<Route exact path='/'>
 					<Home />
 				</Route>
-				<Route exact path='/dashboard'>
-					<Dashboard />
-				</Route>
-				<Route path='/employees/:id'>
-					<Form />
-				</Route>
-				<Route path='/create'>
-					<Form />
-				</Route>
+				<div className='wrapping-container'>
+					<Route exact path='/dashboard'>
+						<Dashboard />
+					</Route>
+					<Route path='/employees/:id'>
+						<FormComponent />
+					</Route>
+					<Route path='/create'>
+						<FormComponent />
+					</Route>
+				</div>
 			</Switch>
 		</Router>
 	);

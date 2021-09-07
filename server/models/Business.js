@@ -49,7 +49,7 @@ var BusinessSchema = new mongoose.Schema(
 				addrLine2: String,
 				city: String,
 				state: String,
-				county: String,
+				country: String,
 				postalCode: Number,
 			},
 		],

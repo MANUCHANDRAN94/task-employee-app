@@ -29,15 +29,6 @@ table th::before {
 	border-right: 5px solid transparent;
 }
 
-.dashboard-container {
-	display: flex;
-	width: 80%;
-	margin: 0 auto;
-	flex-direction: column;
-	padding: 20px;
-	color: #00000094;
-}
-
 .create-button {
 	width: auto;
 	margin: 0 auto 20px;

@@ -21,3 +21,13 @@ code {
 	text-decoration: none;
 	color: inherit;
 }
+.wrapping-container {
+	display: flex;
+	width: 80%;
+	margin: 0 auto;
+	flex-direction: column;
+	padding: 20px;
+	color: #00000094;
+	align-content: space-between;
+	justify-content: space-between;
+}

@@ -124,7 +124,7 @@ function Dashboard() {
 	}
 
 	return (
-		<div className='dashboard-container'>
+		<>
 			<h1 className='dashboard-heading'>
 				<center>Employee List</center>
 			</h1>
@@ -135,7 +135,7 @@ function Dashboard() {
 				{} Create new
 			</Link>
 			<TableContainer columns={columns} data={data} />
-		</div>
+		</>
 	);
 }
 
