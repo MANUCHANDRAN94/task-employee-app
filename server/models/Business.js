@@ -59,4 +59,8 @@ var BusinessSchema = new mongoose.Schema(
 	},
 );
 
+BusinessSchema.virtual('fullName').get(function () {
+	return `${this.contactInfo.firstName} ${this.contactInfo.middleName} ${this.contactInfo.lastName}`;
+});
+
 module.exports = mongoose.model('Business', BusinessSchema);

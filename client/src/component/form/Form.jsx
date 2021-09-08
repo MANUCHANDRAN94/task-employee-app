@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams, useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import {
 	Col,
 	Row,
@@ -15,6 +14,8 @@ import {
 
 import axios from 'axios';
 
+import TextInput from './input components/TextInput';
+
 // import './form.css';
 
 export default function FormComponent() {
@@ -25,6 +26,7 @@ export default function FormComponent() {
 		useForm({
 			mode: 'onChange',
 		});
+
 	const [data, setData] = useState([]);
 	const [showSecondaryAddr, setShowSecondaryAddr] = useState(false);
 
@@ -37,6 +39,7 @@ export default function FormComponent() {
 				})
 				.catch((err) => console.log(err));
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const toggleSecondaryAddr = () => {
@@ -126,19 +129,31 @@ export default function FormComponent() {
 				alert('Successfully created');
 			})
 			.catch(function (error) {
-				alert(error.message);
+				alert(
+					JSON.stringify({
+						status: error.response.status,
+						message: error.response.data.message,
+					}),
+				);
+				console.log(error.response);
 			});
 	}
 
 	function updateUser(id, data) {
 		axios
 			.put('/employees/' + id, data)
-			.then(function (response) {
+			.then((response) => {
 				history.push('/dashboard');
 				alert('Success Update');
 			})
 			.catch(function (error) {
-				alert(error.message);
+				alert(
+					JSON.stringify({
+						status: error.response.status,
+						message: error.response.data.message,
+					}),
+				);
+				console.log(error.response);
 			});
 	}
 
@@ -165,6 +180,7 @@ export default function FormComponent() {
 				setValue('pin' + index, element.postalCode);
 			});
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data]);
 
 	return (
@@ -281,6 +297,13 @@ export default function FormComponent() {
 								)}
 							</FormGroup>
 						</Col>
+
+						{/* <TextInput
+							name='firstName'
+							placeholder='First Name'
+							register={register}
+							errors={errors}
+						/> */}
 
 						{/* Middle Name */}
 						<Col md={6}>
@@ -474,7 +497,7 @@ export default function FormComponent() {
 									<input
 										type='text'
 										name='city0'
-										id='citcity0y'
+										id='city0'
 										placeholder='Enter city'
 										// defaultValue={data.key}
 										{...register('city0')}

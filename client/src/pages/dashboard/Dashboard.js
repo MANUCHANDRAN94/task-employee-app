@@ -109,6 +109,7 @@ function Dashboard() {
 			// 	Cell: ({ cell: { value } }) => value || '-',
 			// },
 		],
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[],
 	);
 
@@ -130,7 +131,7 @@ function Dashboard() {
 			</h1>
 			<Link className='create-button' to='/create'>
 				<span>
-					<i class='fas fa-user-plus'></i>
+					<i className='fas fa-user-plus'></i>
 				</span>
 				{} Create new
 			</Link>

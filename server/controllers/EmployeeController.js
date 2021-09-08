@@ -9,7 +9,9 @@ employeeController.listAll = async (req, res) => {
 		const list = await Business.find({});
 		res.status(200).json({ list: list });
 	} catch (err) {
-		res.status(500).json(err);
+		res.status(500).send({
+			message: err.message || 'Error Occurred',
+		});
 	}
 };
 
@@ -19,7 +21,9 @@ employeeController.getEmployeeById = async (req, res) => {
 		const currentEmployee = await Business.findById(req.params.id);
 		res.status(200).json(currentEmployee);
 	} catch (err) {
-		res.status(500).json(err);
+		res.status(500).send({
+			message: err.message || 'Error Occurred',
+		});
 	}
 };
 
@@ -30,21 +34,26 @@ employeeController.createEmployee = async (req, res) => {
 		const savedNewEmployee = await newEmployee.save();
 		res.status(200).json(savedNewEmployee);
 	} catch (err) {
-		res.status(500).json(err);
+		res.status(500).send({
+			message: err.message || 'Error Occurred',
+		});
 	}
 };
 
 // Update an employee
 employeeController.updateEmployee = async (req, res) => {
 	try {
-		const updatedEmployeeDetail = await Business.findOneAndUpdate(
+		const updatedEmployeeDetail = await Business.findByIdAndUpdate(
 			req.params.id,
 			{ $set: req.body },
 			{ new: true },
 		);
 		res.status(200).json(updatedEmployeeDetail);
 	} catch (err) {
-		res.status(500).json(err);
+		console.log(err);
+		res.status(500).send({
+			message: err.message || 'Error Occurred',
+		});
 	}
 };
 
@@ -52,9 +61,11 @@ employeeController.updateEmployee = async (req, res) => {
 employeeController.deleteEmployee = async (req, res) => {
 	try {
 		const currentEmployee = await Business.findByIdAndDelete(req.params.id);
-		res.status(200).json('Employee Deleteed');
+		res.status(200).json('Employee Deleted');
 	} catch (err) {
-		res.status(500).json(err);
+		res.status(500).send({
+			message: err.message || 'Error Occurred',
+		});
 	}
 };
 

@@ -3,7 +3,6 @@ import { useTable, useFilters, useGlobalFilter } from 'react-table';
 import { GlobalFilter, DefaultFilterForColumn } from '../../utility/Filter';
 
 const TableContainer = ({ columns, data }) => {
-	console.log(data);
 	const {
 		getTableProps,
 		getTableBodyProps,
